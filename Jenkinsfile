@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout Source') {
             steps {
-                git branch: 'master', url: 'https://github.com/yourusername/Amazone_Clone_ReactJs.git'
+                git branch: 'master', url: 'https://github.com/Lakshmanan1996/Amazone_Clone_ReactJs.git'
             }
         }
 
