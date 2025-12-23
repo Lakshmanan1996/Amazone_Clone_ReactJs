@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "your-dockerhub-username/amazon-clone-react:latest"
+        DOCKER_IMAGE = "lakshmanan1996/amazon-clone-react:latest"
         K8S_NAMESPACE = "amazon-clone"
         KUBECONFIG = "/home/azureuser/.kube/config" // Path to kubeconfig for VM2
     }
