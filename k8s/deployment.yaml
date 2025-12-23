@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: amazon-clone-deployment
+  labels:
+    app: amazon-clone
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: amazon-clone
+  template:
+    metadata:
+      labels:
+        app: amazon-clone
+    spec:
+      containers:
+      - name: amazon-clone
+        image: your-dockerhub-username/amazon-clone-react:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: "production"
