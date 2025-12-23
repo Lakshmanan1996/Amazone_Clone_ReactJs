@@ -6,6 +6,7 @@ pipeline {
     }
 
     environment {
+        CI = "false"   // 🔑 Disable CRA CI lint failures
         DOCKER_IMAGE = "lakshmanan1996/amazon-clone-react:latest"
         K8S_NAMESPACE = "amazon-clone"
         KUBECONFIG = "/home/azureuser/.kube/config"
@@ -23,7 +24,9 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh '''
+                  echo "Node version:"
                   node --version
+                  echo "NPM version:"
                   npm --version
                   npm install
                 '''
@@ -38,7 +41,10 @@ pipeline {
 
         stage('Build Project') {
             steps {
-                sh 'CI=false npm run build'
+                sh '''
+                  echo "Building React app (CI lint disabled)"
+                  npm run build
+                '''
             }
         }
 
