@@ -15,15 +15,18 @@ pipeline {
 
         stage('Checkout Source') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/Lakshmanan1996/Amazone_Clone_ReactJs.git',
-                    credentialsId: 'github-creds'
+                git branch: 'master',
+                    url: 'https://github.com/Lakshmanan1996/Amazone_Clone_ReactJs.git'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                sh '''
+                  node --version
+                  npm --version
+                  npm install
+                '''
             }
         }
 
@@ -69,10 +72,10 @@ pipeline {
 
     post {
         success {
-            echo '✅ Deployment Successful!'
+            echo '✅ Pipeline completed successfully!'
         }
         failure {
-            echo '❌ Pipeline Failed!'
+            echo '❌ Pipeline failed. Check logs.'
         }
     }
 }
