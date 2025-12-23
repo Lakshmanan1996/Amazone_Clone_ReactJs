@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: amazon-clone
-        image: your-dockerhub-username/amazon-clone-react:latest
+        image: lakshmanan1996/amazon-clone-react:latest
         ports:
         - containerPort: 3000
         env:
