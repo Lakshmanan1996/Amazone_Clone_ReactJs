@@ -3,13 +3,13 @@ import App from './App';
 import { StateProvider } from './StateProvider';
 import reducer, { initialState } from './reducer';
 
-test('renders learn react link', () => {
+test('renders Add to Basket button', () => {
   render(
     <StateProvider initialState={initialState} reducer={reducer}>
       <App />
     </StateProvider>
   );
 
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const button = screen.getAllByText(/add to basket/i)[0];
+  expect(button).toBeInTheDocument();
 });
